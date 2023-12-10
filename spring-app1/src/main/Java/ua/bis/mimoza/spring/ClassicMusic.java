@@ -1,33 +1,15 @@
 package ua.bis.mimoza.spring;
 
-public class ClassicMusic implements Music{
-	
-	private ClassicMusic() {};
-	
-	public static ClassicMusic getClassicMusic() {
-		return new ClassicMusic();
-	}
-	
-	String song;
-	private void doMyInit() {
-		System.out.println("Doing initialisation");
-	}
-	
-	private void doMyDestroy() {
-		System.out.println("Doing my destruction");
-	}
-	
-	
+import org.springframework.stereotype.Component;
+
+@Component
+public class ClassicMusic implements Music {
+
 	@Override
 	public String getSong() {
-		
-		return song;
+		// TODO Auto-generated method stub
+		return "Classical Song";
 	}
 
-	@Override
-	public void setSong(String song) {
-		this.song = song;
-		
-	}
-
+	
 }

@@ -1,20 +1,18 @@
 package ua.bis.mimoza.spring;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class RockMusic implements Music{
 	
-	String song;
-
+	
 	@Override
 	public String getSong() {
 		
-		return song;
+		return "Rock Song";
 	}
 
-	@Override
-	public void setSong(String song) {
-		this.song = song;
-		
-	}
+	
 
 	
 
