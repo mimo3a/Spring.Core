@@ -1,52 +1,46 @@
 package ua.bis.mimoza.spring;
 
+import java.util.ArrayList;
 import java.util.Random;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
 
-@Component
 public class MusicPlayer {
-//	so
 
-//@Autowired	
-//@Qualifier("classicMusic")
-//private Music music1;
-//@Autowired	
-//@Qualifier("rockMusic")
-//private Music music2;
+	ArrayList<Music> janre = new ArrayList<Music>();
 
-//	oder so
+//	private Music music1;
+//	private Music music2;
 
-	private Music music1;
-	private Music music2;
+	@Value("${musicPlayer.name}")
+	private String name;
 
-	@Autowired
-	public MusicPlayer(@Qualifier("classicMusic") Music music1, @Qualifier("rockMusic") Music music2) {
+	@Value("${musicPlayer.volume}")
+	private int volume;
+
+	public MusicPlayer(ArrayList<Music> janre) {
 		super();
-		this.music1 = music1;
-		this.music2 = music2;
+		this.janre = janre;
 	}
 
-	public void playMusic(MusicJanre janre) {
-		
-		Random random =  new Random();
-		int number = random.nextInt(3);		
+	public void playMusic() {
+		System.out.println("Playing");
 
-		switch (janre) {
-		case CLASSICAL:
-			System.out.println(music1.getSong()[number]);
-			break;
-		case ROCK:
-			System.out.println(music2.getSong()[number]);
-			break;
-		default:
-			break;
-		}
+		Random random = new Random();
+		int number = random.nextInt(janre.size());
+		System.out.println(number);
+
+		System.out.println(janre.get(number).getSong() + " Volum " + this.volume);
 
 	}
 
-	
+	public String getName() {
+		return name;
+	}
+
+	public int getVolume() {
+		return volume;
+	}
 
 }

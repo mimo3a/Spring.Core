@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 public class RapMusic implements Music {
 
 	@Override
-	public String[] getSong() {
+	public String getSong() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Rap Song";
 	}
 
 	
